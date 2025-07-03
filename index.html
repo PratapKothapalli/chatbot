@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Website-ASPICE-chatbot</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Website-ASPICE-chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Redirect to login if not authenticated
+    if (sessionStorage.getItem("authenticated") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
 <body>
-    <h1>Welcome to Website-ASPICE-chatbot</h1>
-
-    <!-- Image appears here -->
-    <img src="welcome.png" alt="Welcome Image" width="600">
-
-    <p>This website provides support and guidance for ASPICE assessment-related tasks.</p>
-
-    <button onclick="showMessage()">Click Me</button>    
-    <script src="script.js"></script>
+  <h1>Welcome to Website-ASPICE-chatbot</h1>
+  <img src="welcome.png" alt="Welcome Image" width="600">
+  <p>This website provides support and guidance for ASPICE assessment-related tasks.</p>
+  <button onclick="showMessage()">Click Me</button>
+  <script src="script.js"></script>
 </body>
 </html>
+
