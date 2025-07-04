@@ -10,9 +10,25 @@
       window.location.href = "login.html";
     }
 
-    // Function to show chatbot iframe
+    // Function to load Chatbase widget after button click
     function showChatbot() {
-      document.getElementById("chatbot-container").style.display = "block";
+      if (!window.chatbaseLoaded) {
+        window.chatbaseLoaded = true;
+
+        // Set config
+        window.chatbaseConfig = {
+          chatbotId: "SJ0iVpckG5l_xOpijRCp0",
+          showFloatingInitialMessages: true,
+          floatingInitialMessagesDelay: 2
+        };
+
+        // Create script tag
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.defer = true;
+        script.setAttribute("chatbotId", "SJ0iVpckG5l_xOpijRCp0");
+        document.body.appendChild(script);
+      }
     }
   </script>
 </head>
@@ -21,12 +37,5 @@
   <img src="welcome.png" alt="Welcome Image" width="600">
   <p>This website provides support and guidance for ASPICE assessment-related tasks.</p>
   <button onclick="showChatbot()">Click Me</button>
-
-  <!-- Chatbot iframe hidden initially -->
-  <div id="chatbot-container" style="display: none; margin-top: 20px;">
-    <iframe 
-      src="https://www.chatbase.co/chatbot-iframe/SJ0iVpckG5l_xOpijRCp0" 
-      width="100%" 
-      height="600" 
-      style="
-
+</body>
+</html>
